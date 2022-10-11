@@ -1,6 +1,6 @@
 function loadStudents(){
     fetch("etudiants.json", {
-        headers: new Headers({"Authorization": "Bearer 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"})
+        headers: new Headers({"Authorization": "Bearer CLE-GITHUB"})
         })
         .then(data => data.json())
         .then(results => students_api(results.students))
@@ -12,25 +12,25 @@ async function students_api(students){
     await response.json();
     for(student of students){
         fetch("https://api.github.com/users/"+student+"", {
-        headers: new Headers({"Authorization": "Bearer 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"})
+        headers: new Headers({"Authorization": "Bearer CLE-GITHUB"})
         })
             .then(data => data.json())
             .then(results => git_api(results))
 
         fetch("https://api.github.com/users/"+student+"/followers", {
-        headers: new Headers({"Authorization": "Bearer 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"})
+        headers: new Headers({"Authorization": "Bearer CLE-GITHUB"})
         })
             .then(data => data.json())
             .then(results => follower_api(results))
          
         fetch("https://api.github.com/users/"+student+"", {
-        headers: new Headers({"Authorization": "Bearer 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"})
+        headers: new Headers({"Authorization": "Bearer CLE-GITHUB"})
         })
             .then(data => data.json())
             .then(results => nombre_dossier(results))    
         
         fetch("https://api.github.com/users/"+student+"/repos", {
-        headers: new Headers({"Authorization": "Bearer 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"})
+        headers: new Headers({"Authorization": "Bearer CLE-GITHUB"})
         })
             .then(data => data.json())
             .then(results => repos_api(results))
