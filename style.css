@@ -1,0 +1,49 @@
+.fiche{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid blue;
+    align-items: center;
+    background-color:rgb(245, 245, 245);
+}
+.image {
+    border-radius: 50%;
+    width: 20vw;
+    display: flex;
+    margin: 1vh 1vw;
+}
+.bio {
+    width: 100%;
+    padding: 4vh 4vw;
+    background-color: coral;
+    color: white;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.dossier::before {
+    content: "Nombre de projet : ";
+}
+.abonnee::before{
+    content: "Nombre de followers : ";
+}
+.liste-abonnee, .liste-projet{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 18px;
+    margin: 1vh;
+    padding: 1vh 4vw;
+    box-sizing: border-box;
+}
+.liste-abonnee{
+    background-color:seagreen;
+}
+.liste-projet{
+    background-color: orchid;
+}
+
+.separation{
+    border-bottom: 1px solid green;
+    width: 100%;
+}
