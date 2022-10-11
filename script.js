@@ -1,5 +1,5 @@
+
 $( document ).ready(function() {
-    console.log("test")
     function loadStudents(){
         fetch("etudiants.json", {
             headers: new Headers({"Authorization": "Bearer CLE-GITHUB"})
@@ -62,6 +62,7 @@ $( document ).ready(function() {
         bio.classList.add("bio");
         abonnee = document.getElementById("eleve").appendChild(follower);
         abonnee.classList.add("abonnee");
+        return results
     }
     
     function nombre_dossier(results){
@@ -113,4 +114,4 @@ $( document ).ready(function() {
             separation.classList.add("separation");
         }
     }
-  });
+});
