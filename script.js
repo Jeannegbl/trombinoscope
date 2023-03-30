@@ -1,8 +1,9 @@
+$cle = "Bearer CLE-GITHUB"
 
 $( document ).ready(function() {
     function loadStudents(){
         fetch("etudiants.json", {
-            headers: new Headers({"Authorization": "Bearer CLE-GITHUB"})
+            headers: new Headers({"Authorization": $cle})
             })
             .then(data => data.json())
             .then(results => students_api(results.students))
@@ -12,25 +13,25 @@ $( document ).ready(function() {
     async function students_api(students){
         for(student of students){
             await fetch("https://api.github.com/users/"+student+"", {
-            headers: new Headers({"Authorization": "Bearer CLE-GITHUB"})
+            headers: new Headers({"Authorization": $cle})
             })
                 .then(data => data.json())
                 .then(results => git_api(results))
     
             await fetch("https://api.github.com/users/"+student+"/followers", {
-            headers: new Headers({"Authorization": "Bearer CLE-GITHUB"})
+            headers: new Headers({"Authorization": $cle})
             })
                 .then(data => data.json())
                 .then(results => follower_api(results))
              
             await fetch("https://api.github.com/users/"+student+"", {
-            headers: new Headers({"Authorization": "Bearer CLE-GITHUB"})
+            headers: new Headers({"Authorization": $cle})
             })
                 .then(data => data.json())
                 .then(results => nombre_dossier(results))    
             
             await fetch("https://api.github.com/users/"+student+"/repos", {
-            headers: new Headers({"Authorization": "Bearer CLE-GITHUB"})
+            headers: new Headers({"Authorization": $cle})
             })
                 .then(data => data.json())
                 .then(results => repos_api(results))
