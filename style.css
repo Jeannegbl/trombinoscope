@@ -7,7 +7,7 @@
 }
 .image {
     border-radius: 50%;
-    width: 20vw;
+    width: 15vh;
     display: flex;
     margin: 1vh 1vw;
 }
@@ -46,4 +46,19 @@
 .separation{
     border-bottom: 1px solid green;
     width: 100%;
+}
+
+.carte{
+    display: flex;
+    width: 45vw;
+    margin: 2vh;
+    padding: 2vh 0 2vh 0;
+    background-color: lightgray;
+    border: gray 2px solid;
+}
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
 }

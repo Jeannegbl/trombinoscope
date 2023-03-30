@@ -12,33 +12,30 @@ $( document ).ready(function() {
     
     async function students_api(students){
         for(student of students){
-            await fetch("https://api.github.com/users/"+student+"", {
-            headers: new Headers({"Authorization": $cle})
-            })
+            await fetch("https://api.github.com/users/"+student)
                 .then(data => data.json())
                 .then(results => git_api(results))
     
-            await fetch("https://api.github.com/users/"+student+"/followers", {
-            headers: new Headers({"Authorization": $cle})
-            })
+            await fetch("https://api.github.com/users/"+student+"/followers")
                 .then(data => data.json())
                 .then(results => follower_api(results))
              
-            await fetch("https://api.github.com/users/"+student+"", {
-            headers: new Headers({"Authorization": $cle})
-            })
+            await fetch("https://api.github.com/users/"+student)
                 .then(data => data.json())
                 .then(results => nombre_dossier(results))    
             
-            await fetch("https://api.github.com/users/"+student+"/repos", {
-            headers: new Headers({"Authorization": $cle})
-            })
+            await fetch("https://api.github.com/users/"+student+"/repos")
                 .then(data => data.json())
                 .then(results => repos_api(results))
         }
     }
     
     function git_api(results){
+        let diviser = document.createElement("div");
+        diviser.setAttribute('id','eleve_'+student)
+        div = document.getElementById("flex").appendChild(diviser);
+        div.classList.add("carte");
+        div.classList.add("fiche");
         let biographie = document.createElement("p");
         let follower = document.createElement("p");
         let img = document.createElement("img");
@@ -55,13 +52,13 @@ $( document ).ready(function() {
         } else {
             biographie.innerHTML += results.bio;
         }
-        image = document.getElementById("eleve").appendChild(img);
+        image = document.getElementById('eleve_'+student).appendChild(img);
         image.classList.add("image");
-        nom = document.getElementById("eleve").appendChild(a);
+        nom = document.getElementById('eleve_'+student).appendChild(a);
         nom.classList.add("nom");
-        bio = document.getElementById("eleve").appendChild(biographie);
+        bio = document.getElementById('eleve_'+student).appendChild(biographie);
         bio.classList.add("bio");
-        abonnee = document.getElementById("eleve").appendChild(follower);
+        abonnee = document.getElementById('eleve_'+student).appendChild(follower);
         abonnee.classList.add("abonnee");
         return results
     }
@@ -70,7 +67,7 @@ $( document ).ready(function() {
         let repository = document.createElement("p");
         repository.innerHTML += results.public_repos;
     
-        dossier = document.getElementById("eleve").appendChild(repository);
+        dossier = document.getElementById('eleve_'+student).appendChild(repository);
         dossier.classList.add("dossier");
     }
     
@@ -81,7 +78,7 @@ $( document ).ready(function() {
             a.appendChild(url_github);
             a.innerHTML += results[i].login;
             a.href += results[i].html_url;
-            abonnee = document.getElementById("eleve").appendChild(a);
+            abonnee = document.getElementById('eleve_'+student).appendChild(a);
             abonnee.classList.add("liste-abonnee");
         }
     }
@@ -94,11 +91,11 @@ $( document ).ready(function() {
                 a.appendChild(url_github);
                 a.innerHTML += results[i].name;
                 a.href += results[i].html_url;
-                dossier = document.getElementById("eleve").appendChild(a);
+                dossier = document.getElementById('eleve_'+student).appendChild(a);
                 dossier.classList.add("liste-projet");
             }
             let div = document.createElement("div");
-            separation = document.getElementById("eleve").appendChild(div);
+            separation = document.getElementById('eleve_'+student).appendChild(div);
             separation.classList.add("separation");
         }else{
             for(i=0; i<results.length; i++){
@@ -107,11 +104,11 @@ $( document ).ready(function() {
                 a.appendChild(url_github);
                 a.innerHTML += results[i].name;
                 a.href += results[i].html_url;
-                dossier = document.getElementById("eleve").appendChild(a);
+                dossier = document.getElementById('eleve_'+student).appendChild(a);
                 dossier.classList.add("liste-projet");
             }
             let div = document.createElement("div");
-            separation = document.getElementById("eleve").appendChild(div);
+            separation = document.getElementById('eleve_'+student).appendChild(div);
             separation.classList.add("separation");
         }
     }
