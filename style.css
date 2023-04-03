@@ -1,60 +1,107 @@
-.fiche{
+.nom{
+    border-style: outset;
+    padding: 2vh 1vw;
+    border-top-color: rgb(203, 203, 203);
+    border-left-color: rgb(203, 203, 203);
+    border-right-color: #A35C2F;
+    border-bottom-color: #A35C2F;
+    font-size: 35px;
+    width: 35vw;
+}
+.niveau{
     display: flex;
-    flex-direction: column;
-    border: 1px solid blue;
-    align-items: center;
-    background-color:rgb(245, 245, 245);
+    width: 33vw;
+    justify-content: end;
+}
+.rond{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 1vh 1px;
+    background: rgb(197, 1, 1);
+    color: yellow;
+    font-size: 25px;
+    text-align: center;
+}
+.div-image{
+    height: 60vh;
+    border: #4E4347 5px outset;
+    background-color: #9d7e40;
 }
 .image {
-    border-radius: 50%;
-    width: 15vh;
-    display: flex;
-    margin: 1vh 1vw;
-}
-.bio {
-    width: 100%;
-    padding: 4vh 4vw;
-    background-color: coral;
-    color: white;
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
-    box-sizing: border-box;
-}
-.dossier::before {
-    content: "Nombre de projet : ";
-}
-.abonnee::before{
-    content: "Nombre de followers : ";
-}
-.liste-abonnee, .liste-projet{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    font-size: 18px;
-    margin: 1vh;
-    padding: 1vh 4vw;
-    box-sizing: border-box;
-}
-.liste-abonnee{
-    background-color:seagreen;
-}
-.liste-projet{
-    background-color: orchid;
+    height:100%;
 }
 
-.separation{
-    border-bottom: 1px solid green;
-    width: 100%;
+.champs-bio{
+    width: 90%;
+    border: rgb(250, 139, 36) 5px ridge;
+    background-color: rgba(255, 255, 255, 0.6);
+    margin: 4vh 0;
+}
+.bio {
+    padding: 1vh 1vw 15vh 1vw;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+.bio::before{
+    content: "[DÉVELOPPEUR]";
+    font-weight: bold;
+}
+.fin{
+    display: flex;
+    justify-content: end;
+    border-top: 2px solid #000;
+    margin: 0 1vw;
+}
+.dossier, .abonnee{
+    font-weight: bold;
+    margin: 1vh 6px;
+}
+.fleche{
+    margin: 1vh 0;
+}
+.dossier::before {
+    content: "PROJET/";
+}
+.abonnee::before{
+    content: "FOLLOWERS/ ";
+}
+.liste-abonnee, .liste-dossier{
+    font-size: 18px;
+    padding: 1vh 4vw;
+    border: black 2px solid;
+    border-top: none;
+}
+.liste-abonnee-div, .liste-dossier-div{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: #d3aa57;
+}
+.close{
+    background-color: red;
+    order: -1;
+    width: 1vw;
+    color: white;
+    border-radius: 100%;
+    padding: 1vh;
+    display: flex;
+    margin: 0;
+    justify-content: center;
 }
 
 .carte{
     display: flex;
-    width: 45vw;
+    width: 40vw;
     margin: 2vh;
-    padding: 2vh 0 2vh 0;
-    background-color: lightgray;
-    border: gray 2px solid;
+    padding: 2vh 0;
+    background-color: #BC964B;
+    border: #293241 20px solid;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
 }
 
 .flex{
